@@ -2,48 +2,429 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>ToolForest Studio - Free Online Tools</title>
-<meta name="description" content="Free online tools for images, text, developers, and creators.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Tool Forest Studio - Free Online Tools</title>
+
+<meta name="description" content="Free online tools for images, developers and creators. Fast, simple and browser-based tools.">
 
 <style>
+
+*{
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
 body{
-font-family:Arial,sans-serif;
-margin:0;
-padding:40px;
-background:#f7f8fa;
-text-align:center;
+  margin:0;
+  font-family:Arial, Helvetica, sans-serif;
+  background:#f6f8f7;
+  color:#111;
 }
 
-h1{
-font-size:48px;
-margin:0;
+a{
+  text-decoration:none;
+  color:inherit;
 }
 
-p{
-color:#666;
+.header{
+  position:sticky;
+  top:0;
+  z-index:100;
+  background:rgba(255,255,255,.9);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid #e7ece9;
+}
+
+.header-inner{
+  max-width:1150px;
+  margin:auto;
+  padding:18px 22px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+.logo{
+  display:flex;
+  align-items:center;
+  font-size:22px;
+  font-weight:800;
+  letter-spacing:-0.03em;
+}
+
+.nav{
+  display:flex;
+  gap:20px;
+}
+
+.nav a{
+  font-size:14px;
+  color:#5b635f;
+  transition:.2s;
+}
+
+.nav a:hover{
+  color:#111;
+}
+
+.hero{
+  max-width:1150px;
+  margin:auto;
+  padding:90px 22px 60px;
+  text-align:center;
+}
+
+.hero-badge{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:10px 16px;
+  border-radius:999px;
+  background:#fff;
+  border:1px solid #e5ebe7;
+  font-size:13px;
+  color:#466250;
+  margin-bottom:24px;
+}
+
+.hero h1{
+  margin:0;
+  font-size:clamp(48px,8vw,92px);
+  line-height:1.02;
+  letter-spacing:-0.06em;
+}
+
+.hero p{
+  max-width:720px;
+  margin:26px auto 0;
+  color:#616864;
+  line-height:1.8;
+  font-size:18px;
+}
+
+.hero-buttons{
+  display:flex;
+  justify-content:center;
+  gap:14px;
+  margin-top:34px;
+  flex-wrap:wrap;
+}
+
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:15px 24px;
+  border-radius:999px;
+  font-weight:700;
+  transition:.2s;
+  border:1px solid #dfe7e2;
+  background:#fff;
+}
+
+.btn-primary{
+  background:#163d2a;
+  color:#fff;
+  border-color:#163d2a;
+}
+
+.btn:hover{
+  transform:translateY(-2px);
+}
+
+.section{
+  max-width:1150px;
+  margin:auto;
+  padding:40px 22px;
+}
+
+.section-title{
+  margin-bottom:22px;
+}
+
+.section-title h2{
+  margin:0;
+  font-size:34px;
+  letter-spacing:-0.04em;
+}
+
+.section-title p{
+  margin:10px 0 0;
+  color:#6a726e;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
 }
 
 .card{
-background:#fff;
-padding:20px;
-border-radius:12px;
-max-width:220px;
-margin:20px auto;
-box-shadow:0 4px 12px rgba(0,0,0,.05);
+  background:#fff;
+  border:1px solid #e4ebe7;
+  border-radius:26px;
+  padding:24px;
+  transition:.25s;
+  box-shadow:0 10px 24px rgba(0,0,0,.03);
 }
-</style>
 
+.card:hover{
+  transform:translateY(-4px);
+  box-shadow:0 16px 38px rgba(0,0,0,.08);
+}
+
+.card-icon{
+  width:48px;
+  height:48px;
+  border-radius:16px;
+  background:#edf5f0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:22px;
+  margin-bottom:18px;
+}
+
+.card h3{
+  margin:0 0 10px;
+  font-size:22px;
+}
+
+.card p{
+  margin:0;
+  color:#69706c;
+  line-height:1.7;
+  font-size:14px;
+}
+
+.footer{
+  max-width:1150px;
+  margin:60px auto 0;
+  padding:30px 22px;
+  border-top:1px solid #e1e7e3;
+  display:flex;
+  justify-content:space-between;
+  gap:20px;
+  flex-wrap:wrap;
+  color:#6a726e;
+  font-size:14px;
+}
+
+.footer-links{
+  display:flex;
+  gap:16px;
+  flex-wrap:wrap;
+}
+
+@media(max-width:860px){
+
+  .nav{
+    display:none;
+  }
+
+  .grid{
+    grid-template-columns:1fr;
+  }
+
+  .hero{
+    padding-top:60px;
+  }
+
+  .hero h1{
+    font-size:56px;
+  }
+
+}
+
+</style>
 </head>
+
 <body>
 
-<h1>ToolForest Studio</h1>
+<header class="header">
 
-<p>Build • Edit • Create</p>
+  <div class="header-inner">
 
-<div class="card">
-PNG to WebP
-</div>
+    <a href="/" class="logo">
+      Tool Forest Studio
+    </a>
+
+    <nav class="nav">
+      <a href="#popular">Popular</a>
+      <a href="#image-tools">Image Tools</a>
+      <a href="#developer-tools">Developer Tools</a>
+      <a href="#text-tools">Text Tools</a>
+    </nav>
+
+  </div>
+
+</header>
+
+<section class="hero">
+
+  <div class="hero-badge">
+    Free browser tools for creators
+  </div>
+
+  <h1>
+    Build, Edit<br>
+    and Create.
+  </h1>
+
+  <p>
+    Tool Forest Studio provides simple and fast online tools for images,
+    developers and creators. No signup. No installation. Just open and use.
+  </p>
+
+  <div class="hero-buttons">
+    <a href="#popular" class="btn btn-primary">Explore Tools</a>
+    <a href="#image-tools" class="btn">Image Tools</a>
+  </div>
+
+</section>
+
+<section class="section" id="popular">
+
+  <div class="section-title">
+    <h2>Popular Tools</h2>
+    <p>Start with the most used tools.</p>
+  </div>
+
+  <div class="grid">
+
+    <a class="card" href="/png-to-webp/">
+      <div class="card-icon">🖼️</div>
+      <h3>PNG to WebP</h3>
+      <p>Convert PNG images into lightweight WebP files directly in your browser.</p>
+    </a>
+
+    <a class="card" href="/image-compress/">
+      <div class="card-icon">📦</div>
+      <h3>Image Compress</h3>
+      <p>Reduce image size while keeping quality clean and optimized.</p>
+    </a>
+
+    <a class="card" href="/crop-image/">
+      <div class="card-icon">✂️</div>
+      <h3>Crop Image</h3>
+      <p>Crop and resize images for websites, social media and thumbnails.</p>
+    </a>
+
+  </div>
+
+</section>
+
+<section class="section" id="image-tools">
+
+  <div class="section-title">
+    <h2>Image Tools</h2>
+    <p>Convert, crop and optimize images online.</p>
+  </div>
+
+  <div class="grid">
+
+    <a class="card" href="/png-to-webp/">
+      <div class="card-icon">🖼️</div>
+      <h3>PNG to WebP</h3>
+      <p>Convert PNG images into modern WebP format.</p>
+    </a>
+
+    <a class="card" href="/image-compress/">
+      <div class="card-icon">📦</div>
+      <h3>Image Compress</h3>
+      <p>Compress large image files instantly.</p>
+    </a>
+
+    <a class="card" href="/crop-image/">
+      <div class="card-icon">✂️</div>
+      <h3>Crop Image</h3>
+      <p>Simple image cropping tool for creators.</p>
+    </a>
+
+  </div>
+
+</section>
+
+<section class="section" id="developer-tools">
+
+  <div class="section-title">
+    <h2>Developer Tools</h2>
+    <p>Useful browser tools for developers.</p>
+  </div>
+
+  <div class="grid">
+
+    <a class="card" href="/json-formatter/">
+      <div class="card-icon">{ }</div>
+      <h3>JSON Formatter</h3>
+      <p>Beautify and format JSON instantly.</p>
+    </a>
+
+    <a class="card" href="/base64/">
+      <div class="card-icon">🔐</div>
+      <h3>Base64 Encode Decode</h3>
+      <p>Encode and decode Base64 text easily.</p>
+    </a>
+
+    <a class="card" href="/uuid-generator/">
+      <div class="card-icon">🆔</div>
+      <h3>UUID Generator</h3>
+      <p>Create random UUIDs for development and testing.</p>
+    </a>
+
+  </div>
+
+</section>
+
+<section class="section" id="text-tools">
+
+  <div class="section-title">
+    <h2>Text Tools</h2>
+    <p>Simple tools for text editing and formatting.</p>
+  </div>
+
+  <div class="grid">
+
+    <a class="card" href="/word-counter/">
+      <div class="card-icon">🔤</div>
+      <h3>Word Counter</h3>
+      <p>Count words, characters and paragraphs instantly.</p>
+    </a>
+
+    <a class="card" href="/duplicate-lines/">
+      <div class="card-icon">🧹</div>
+      <h3>Duplicate Line Remover</h3>
+      <p>Remove duplicate lines from text and lists.</p>
+    </a>
+
+    <a class="card" href="/slug-generator/">
+      <div class="card-icon">🔗</div>
+      <h3>Slug Generator</h3>
+      <p>Create SEO-friendly URL slugs from text.</p>
+    </a>
+
+  </div>
+
+</section>
+
+<footer class="footer">
+
+  <div>
+    © 2026 Tool Forest Studio
+  </div>
+
+  <div class="footer-links">
+    <a href="/about/">About</a>
+    <a href="/privacy/">Privacy Policy</a>
+    <a href="/terms/">Terms</a>
+    <a href="/contact/">Contact</a>
+  </div>
+
+</footer>
 
 </body>
 </html>
